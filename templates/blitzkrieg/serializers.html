@@ -1,16 +1,16 @@
 from rest_framework import serializers
+from {{ base_model_serializer_module }} import {{ base_model_serializer_serializer }}
+from rest_framework.exceptions import ValidationError as DRFValidationError  # To avoid mixing between core validation error
 from {{ app_name }} import models
 
 {% for model in modelset %}
-class {{ model.pascal_model_name }}Serializer({{ base_model_serializer }}:
+class {{ model.pascal_model_name }}Serializer({{ base_model_serializer_serializer }}):
 
     class Meta:
         model = models.{{ model.pascal_model_name }}
         fields = (
-            {% for field in model.fields %}
-            '{{ field }}',{{ '\n' }}
+            {% for field in model.fields %}'{{ field }}',
             {% endfor %}
         )
-
 
 {% endfor %}

@@ -1,0 +1,16 @@
+from rest_framework import serializers
+from {{ app_name }} import models
+
+{% for model in modelset %}
+class {{ model.pascal_model_name }}Admin({{ base_model_serializer }}:
+
+    class Meta:
+        model = models.{{ model.pascal_model_name }}
+        fields = (
+            {% for field in model.fields %}
+            '{{ field }}',{{ '\n' }}
+            {% endfor %}
+        )
+
+
+{% endfor %}

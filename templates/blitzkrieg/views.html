@@ -1,0 +1,17 @@
+from {{ app_name }} import models
+from {{ app_name }} import serializers
+
+
+{% for model in modelset %}
+class {{ model.pascal_model_name }}View({{ base_model_serializer }}:
+
+    class Meta:
+        model = models.{{ model.pascal_model_name }}
+        fields = (
+            {% for field in model.fields %}
+            '{{ field }}',
+            {% endfor %}
+        )
+
+
+{% endfor %}
