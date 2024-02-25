@@ -3,11 +3,7 @@ from django.core.management import BaseCommand
 from controls.definitions import ModelDetails
 from controls.management.utils import validate_options, validate_serializers_options, get_content_types_dict
 from controls.settings import BLITZKRIEG
-
-
-def get_modelset(app_label, model_name, fields_str):
-
-    return []
+from controls.views import create_serializers_dot_py
 
 
 class Command(BaseCommand):
@@ -24,7 +20,6 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        from controls.views import create_serializers_dot_py
         validate_serializers_options(options)
         print('app is:: ', options['app_label'])
         app_label = options['app_label']
@@ -43,8 +38,6 @@ class Command(BaseCommand):
             'base_model_serializer_serializer': base_serializers_serializer,
             'modelset': modelset
         }
-        # os.getcwd() +
-        # template_address = os.path.join('templates/blitzkrieg/serializers.html')
         template_address = os.path.join(os.getcwd() + '/templates/blitzkrieg/serializers.html')
         create_serializers_dot_py(template_address, context)
 

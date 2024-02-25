@@ -37,11 +37,11 @@ class Command(BaseCommand):
                     app_label=app
                     # model_name=content_type.model_class().__name__,
                 )
-                # call_command(
-                #     f'blitzkrieg_views',
-                #     model_name=content_type.model_class().__name__,
-                #     app_label=content_type.app_label
-                # )
+                call_command(
+                    f'blitzkrieg_views',
+                    # model_name=content_type.model_class().__name__,
+                    app_label=app
+                )
                 # call_command(
                 #     f'blitzkrieg_admins',
                 #     model_name=content_type.model_class().__name__,

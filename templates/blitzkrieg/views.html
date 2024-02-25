@@ -1,17 +1,13 @@
+from rest_framework import serializers
+from {{ base_generic_model_viewset_module }} import {{ base_generic_model_viewset_viewset }}
+from rest_framework.exceptions import ValidationError as DRFValidationError  # To avoid mixing between core validation error
 from {{ app_name }} import models
 from {{ app_name }} import serializers
 
-
 {% for model in modelset %}
-class {{ model.pascal_model_name }}View({{ base_model_serializer }}:
-
-    class Meta:
-        model = models.{{ model.pascal_model_name }}
-        fields = (
-            {% for field in model.fields %}
-            '{{ field }}',
-            {% endfor %}
-        )
+class {{ model.pascal_model_name }}View({{ base_generic_model_viewset_viewset }}):
+    queryset = models.{{ model.pascal_model_name }}.objects.all()
+    serializer_class = serializers.{{ model.pascal_model_name }}Serializer
 
 
 {% endfor %}
