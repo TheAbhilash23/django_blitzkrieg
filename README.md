@@ -13,8 +13,8 @@ To install django_blitzkrieg, <br>
 <h4>Usage :-</h4>
 Use <b>python manage.py blitzkrieg -A </b> to build generated code for all applications in settings.USER_APPS which includes serializers, views, admin <br>
 If you want to build the generated code for a specific application in settings.USER_APPS use:- <br>
-<b>"python manage.py blitzkrieg --app_label=<your_app_label>" </b>
+<b>python manage.py blitzkrieg --app_label=your_app_label</b>
 
 
 If you want to build the generated code for a specific model of a specific application in settings.USER_APPS use:- <br>
-<b>python manage.py blitzkrieg --model_name=<your_app_label>.<your_model_name></b>
+<b>python manage.py blitzkrieg --model_name=your_app_label.your_model_name</b>
