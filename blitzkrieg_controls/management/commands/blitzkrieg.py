@@ -6,7 +6,7 @@ from django.apps.config import os
 from django.core.management import call_command
 from django.core.management import BaseCommand
 
-from controls.management.utils import validate_options
+from blitzkrieg_controls.management.utils import validate_options
 
 
 class Command(BaseCommand):

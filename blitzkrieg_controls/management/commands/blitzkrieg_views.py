@@ -1,9 +1,9 @@
 import os
 from django.core.management import BaseCommand
-from controls.definitions import ModelDetails
-from controls.management.utils import validate_options, validate_serializers_options, get_content_types_dict
-from controls.settings import BLITZKRIEG
-from controls.views import create_views_dot_py
+from blitzkrieg_controls.definitions import ModelDetails
+from blitzkrieg_controls.management.utils import validate_options, validate_serializers_options, get_content_types_dict
+from blitzkrieg_controls.settings import BLITZKRIEG
+from blitzkrieg_controls.views import create_views_dot_py
 
 
 class Command(BaseCommand):

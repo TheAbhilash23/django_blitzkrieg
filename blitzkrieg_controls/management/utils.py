@@ -4,7 +4,7 @@ from django.contrib.contenttypes import models as contrib_models
 from django.core.management import CommandError
 from django.db.models import QuerySet
 
-from controls.definitions import ModelDetails
+from blitzkrieg_controls.definitions import ModelDetails
 
 
 def _get_content_types(app_label: str | None) -> QuerySet:
