@@ -9,7 +9,7 @@ def create_serializers_dot_py(template_address: str, context: dict):
     template = get_template(template_address)
 
     rendered_template = None
-    output_file_path = 'test_serializer.py'
+    output_file_path = 'tests/test_serializer.py'
 
     try:
         rendered_template = template.render(context)
