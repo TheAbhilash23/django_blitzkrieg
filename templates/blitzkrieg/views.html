@@ -9,5 +9,4 @@ class {{ model.pascal_model_name }}View({{ base_generic_model_viewset_viewset }}
     queryset = models.{{ model.pascal_model_name }}.objects.all()
     serializer_class = serializers.{{ model.pascal_model_name }}Serializer
 
-
 {% endfor %}
