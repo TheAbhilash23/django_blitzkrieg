@@ -8,5 +8,5 @@ media
 */media
 tests
 *.pyc
-#.idea
-#venv
+.idea
+venv
