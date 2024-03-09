@@ -1,33 +1,17 @@
-from rest_framework.decorators import action
-from core.generics import GenericModelMixin
-from customers import serializers as customer_serializers
-from customers import models as customer_models
+from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
+from rest_framework.exceptions import ValidationError as DRFValidationError  # To avoid mixing between core validation error
+from customers import models
+from customers import serializers
 
 
-# Create your views here.
-class CustomerViewSet(GenericModelMixin):
-    """
-    Automatically creates four methods of CRUD operations for customer's personal information as well as
-    their credit risk parameters.
-    """
-    queryset = customer_models.Customer.objects.all()
-    serializer_class = customer_serializers.CustomerSerializer
-
-    @action(
-        methods=('get', 'post',),
-        detail=True,
-        serializer_class=customer_serializers.CustomerSerializer,
-        url_path='customer_analysis',
-    )
-    def analysis(self, request):
-        """
-        This method is used to get the analysis report of each customer if it exists.
+class CustomerView(ModelSerializer):
+    queryset = models.Customer.objects.all()
+    serializer_class = serializers.CustomerSerializer
 
 
-        If it does not exist, we pass the credit risk parameters in order to get the report.
-        This method will save the report.
-        """
-        if request.method == 'POST':
-            pass
-        elif request.method == 'GET':
-            pass
+class CustomerCreditRiskParameterView(ModelSerializer):
+    queryset = models.CustomerCreditRiskParameter.objects.all()
+    serializer_class = serializers.CustomerCreditRiskParameterSerializer
+
+

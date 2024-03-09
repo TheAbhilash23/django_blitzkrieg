@@ -1,14 +1,11 @@
-from rest_framework import serializers
-from rest_framework.serializers import ModelSerializer
-from rest_framework.exceptions import ValidationError as DRFValidationError  # To avoid mixing between core validation error
+from django.contrib import admin
 from customers import models
 
 
-class CustomerSerializer(ModelSerializer):
+@admin.register(models.Customer)
+class CustomerAdmin((admin.ModelAdmin):
 
-    class Meta:
-        model = models.Customer
-        fields = (
+        list_disply = (
             'customer_credit_risk_parameters',
             'id',
             'name',
@@ -20,11 +17,11 @@ class CustomerSerializer(ModelSerializer):
         )
 
 
-class CustomerCreditRiskParameterSerializer(ModelSerializer):
 
-    class Meta:
-        model = models.CustomerCreditRiskParameter
-        fields = (
+@admin.register(models.CustomerCreditRiskParameter)
+class CustomerCreditRiskParameterAdmin((admin.ModelAdmin):
+
+        list_disply = (
             'id',
             'customer',
             'is_good_credit_risk',
@@ -50,5 +47,6 @@ class CustomerCreditRiskParameterSerializer(ModelSerializer):
             'is_foreign_worker',
             
         )
+
 
 

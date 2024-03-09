@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 USER_APPS = [
     'basic_app',
     'customers',
+    'test_app_1',
+    'test_app_2',
+    'test_app_3',
 ]
 
 INSTALLED_APPS += USER_APPS

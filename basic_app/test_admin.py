@@ -3,9 +3,9 @@ from basic_app import models
 
 
 @admin.register(models.Book)
-class BookAdmin(admin.ModelAdmin):
+class BookAdmin((admin.ModelAdmin):
 
-        list_display = (
+        list_disply = (
             'id',
             'title',
             'pages',

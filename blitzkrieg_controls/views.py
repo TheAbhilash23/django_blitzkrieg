@@ -8,8 +8,7 @@ def create_serializers_dot_py(template_address: str, context: dict):
     print(template_address)
     template = get_template(template_address)
 
-    rendered_template = None
-    output_file_path = 'tests/test_serializer.py'
+    output_file_path = f'{context["app_name"]}/serializers.py'
 
     try:
         rendered_template = template.render(context)
@@ -25,7 +24,7 @@ def create_views_dot_py(template_address: str, context: dict):
     template = get_template(template_address)
 
     rendered_template = None
-    output_file_path = 'tests/test_views.py'
+    output_file_path = f'{context["app_name"]}/views.py'
 
     try:
         rendered_template = template.render(context)
@@ -41,7 +40,7 @@ def create_admin_dot_py(template_address: str, context: dict):
     template = get_template(template_address)
 
     rendered_template = None
-    output_file_path = 'tests/test_admin.py'
+    output_file_path = f'{context["app_name"]}/admin.py'
 
     try:
         rendered_template = template.render(context)
